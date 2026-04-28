@@ -1,0 +1,45 @@
+.projects {
+  padding: 60px;
+  color: white;
+}
+
+.projects h2 {
+ font-size: 3rem;
+  margin-bottom: 50px;
+text-align: center;
+  color: #f6a119;
+}
+
+.project-container {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.project-card {
+  background: #1a1a1a;
+  padding: 20px;
+  border-radius: 10px;
+  width: 300px;
+  transition: 0.3s;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card h3 {
+  color: orange;
+}
+
+.project-card .tech {
+  font-size: 14px;
+  color: gray;
+}
+
+.project-card a {
+  display: inline-block;
+  margin-top: 10px;
+  color: orange;
+  text-decoration: none;
+}

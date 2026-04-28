@@ -1,0 +1,96 @@
+.about-section {
+  padding: 80px 10%;
+  background-color: #0a0a0a; /* Dark background */
+  color: #fff;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+}
+
+.about-container {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 50px;
+
+  color: #f6a119;
+}
+
+/* The Bento Grid Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto auto;
+  gap: 20px;
+}
+
+/* Individual Cards */
+.about-card {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 24px;
+  backdrop-filter: blur(10px);
+  transition: transform 0.3s ease, border 0.3s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-5px);
+  border: 1px solid #3a7bd5;
+}
+
+.about-card h3 {
+  color: #3a7bd5;
+  margin-bottom: 15px;
+  font-size: 1.4rem;
+}
+
+.about-card p {
+  line-height: 1.6;
+  color: #ccc;
+}
+
+.about-card strong {
+  color: #fff;
+}
+
+/* Specific Card Styling */
+.bio {
+  grid-row: span 1;
+}
+
+.learning {
+  grid-row: span 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: linear-gradient(145deg, rgba(58, 123, 213, 0.1), transparent);
+}
+
+.iot {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.iot-icon {
+  font-size: 2rem;
+}
+
+/* Responsive Logic */
+@media (max-width: 768px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .learning {
+    grid-row: span 1;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
