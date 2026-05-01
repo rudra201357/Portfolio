@@ -1,14 +1,46 @@
+/* ===== NAVBAR CONTAINER ===== */
 .nav {
-  display: flex;
-  justify-content: center;
-  padding: 15px;
-  backdrop-filter: blur(15px); 
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
   position: sticky;
   top: 0;
   z-index: 1000;
+
+  display: flex;
+  align-items: center;
+  justify-content: center; /* keep menu centered */
+
+  padding: 15px 40px;
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
+/* ===== NAME (LEFT FIXED) ===== */
+.nav-name {
+  position: absolute;
+  left: 40px;
+
+  font-family: 'Inter', sans-serif;
+  font-weight: 700;
+  font-size: 1.5rem;
+   color:aqua;
+
+  opacity: 0;
+  transform: translateY(-8px);
+  transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+/* SHOW animation */
+.nav-name.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* HIDE animation */
+.nav-name.hide {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+/* ===== MENU (CENTERED ALWAYS) ===== */
 .nav ul {
   display: flex;
   gap: 30px;
@@ -17,6 +49,7 @@
   padding: 0;
 }
 
+/* ===== MENU ITEMS ===== */
 .nav li {
   color: #f6a119;
   font-family: 'Inter', sans-serif;
@@ -28,7 +61,6 @@
   padding: 8px 12px;
 }
 
-
 .nav li::after {
   content: '';
   position: absolute;
@@ -36,7 +68,7 @@
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #00d2ff; 
+  background-color: #00d2ff;
   box-shadow: 0px 0px 10px #00d2ff;
   transition: width 0.3s ease;
 }
@@ -51,20 +83,31 @@
   transform: translateY(-2px);
 }
 
-.nav-name {
-  opacity: 0;
-  transform: translateY(10px);
-  transition: all 0.4s ease-in-out;
-  font-weight: bold;
-  pointer-events: none;
+a {
+  text-decoration: none;
+  color: inherit;
 }
+#role{
+  font-size: 0.8rem;
+  color: #f6a119;
+}
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+  .nav {
+    padding: 10px 20px;
+  }
 
-.nav-name.show {
-  opacity: 1;
-  transform: translateY(0);
-  pointer-events: auto;
-}
-a{
-    text-decoration: none;
-    color: inherit;
+  .nav-name {
+    left: 20px;
+    font-size: 1.2rem;
+  }
+
+  .nav ul {
+    gap: 15px;
+  }
+
+  .nav li {
+    font-size: 0.9rem;
+    padding: 6px 8px;
+  }
 }
