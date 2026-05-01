@@ -20,7 +20,7 @@ text-align: center;
   background: #1a1a1a;
   padding: 20px;
   border-radius: 10px;
-  width: 300px;
+  width: 320px;
   transition: 0.3s;
 }
 
@@ -42,4 +42,17 @@ text-align: center;
   margin-top: 10px;
   color: orange;
   text-decoration: none;
+}
+.live-demo {
+  margin-left: 20px;
+  cursor: grab;
+   background: rgba(18, 176, 81, 0.1);
+  border: 1px solid rgba(58, 123, 213, 0.3);
+  padding: 5px 10px;
+  border-radius: 50px;
+
+}
+.live-demo:hover {
+background: #3a7bd5;
+  color: white;
 }
