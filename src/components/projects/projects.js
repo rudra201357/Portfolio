@@ -54,7 +54,7 @@ function Projects() {
       title: "Proff Rudii",
       desc: "A personal AI assistant that can give answer what you ask.",
       tech: "ESP32, Xiaozhi AI",
-      github: "#",
+      github: "https://github.com/rudra201357/proff_rudii.git",
       link: ""
     },
     {
@@ -92,15 +92,17 @@ function Projects() {
             <p>{proj.desc}</p>
             <p className="tech">{proj.tech}</p>
 
-            <a href={proj.github} target="_blank" rel="noreferrer">
-              View Code
-            </a>
-            
-            {proj.link && (
-              <a href={proj.link} target="_blank" rel="noreferrer" className="live-demo">
-                Live Demo
+            <div className="project-actions">
+              <a href={proj.github} target="_blank" rel="noreferrer">
+                View Code
               </a>
-            )}
+              
+              {proj.link && (
+                <a href={proj.link} target="_blank" rel="noreferrer" className="live-demo">
+                  Live Demo
+                </a>
+              )}
+            </div>
           </div>
         ))}
       </div>

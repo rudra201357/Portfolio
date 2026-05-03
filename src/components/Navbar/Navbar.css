@@ -11,6 +11,7 @@
   padding: 15px 40px;
   backdrop-filter: blur(15px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  box-sizing: border-box;
 }
 
 /* ===== NAME (LEFT FIXED) ===== */
@@ -47,6 +48,25 @@
   list-style: none;
   margin: 0;
   padding: 0;
+}
+
+.nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid rgba(0, 210, 255, 0.35);
+  border-radius: 8px;
+  background: rgba(13, 13, 13, 0.65);
+  color: #00d2ff;
+  cursor: pointer;
+  font-size: 1.15rem;
+}
+
+.nav-toggle:focus-visible {
+  outline: 2px solid #00d2ff;
+  outline-offset: 3px;
 }
 
 /* ===== MENU ITEMS ===== */
@@ -94,20 +114,85 @@ a {
 /* ===== MOBILE ===== */
 @media (max-width: 768px) {
   .nav {
-    padding: 10px 20px;
+    justify-content: space-between;
+    min-height: 68px;
+    padding: 10px 16px;
   }
 
   .nav-name {
-    left: 20px;
-    font-size: 1.2rem;
+    position: static;
+    max-width: calc(100% - 58px);
+    margin: 0;
+    font-size: 1.1rem;
+    line-height: 1.15;
+    pointer-events: none;
+  }
+
+  #role {
+    font-size: 0.72rem;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    flex: 0 0 auto;
   }
 
   .nav ul {
-    gap: 15px;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    gap: 0;
+    width: 100%;
+    max-height: 0;
+    overflow: hidden;
+    background: rgba(13, 13, 13, 0.96);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.35);
+    transition: max-height 0.3s ease;
+  }
+
+  .nav ul.open {
+    max-height: 320px;
   }
 
   .nav li {
-    font-size: 0.9rem;
-    padding: 6px 8px;
+    width: 100%;
+    padding: 0;
+    font-size: 1rem;
+  }
+
+  .nav li a {
+    display: block;
+    padding: 14px 20px;
+  }
+
+  .nav li:hover {
+    transform: none;
+  }
+
+  .nav li::after {
+    left: 20px;
+    width: 0;
+  }
+
+  .nav li:hover::after {
+    width: calc(100% - 40px);
+  }
+}
+
+@media (max-width: 420px) {
+  .nav {
+    padding-inline: 12px;
+  }
+
+  .nav-name {
+    font-size: 1rem;
+  }
+
+  .nav-toggle {
+    width: 40px;
+    height: 40px;
   }
 }
