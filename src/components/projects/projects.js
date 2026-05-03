@@ -8,7 +8,7 @@ function Projects() {
       desc: "You can order food from RudiiFoodie restaurant.",
       tech: "PHP, MySql",
       github: "https://github.com/rudra201357/RudiiFoodie",
-      link: "https://rudiifoodie.great-site.net/"
+      link: "https://rudiifoodie.gt.tc"
     },   
     {
       title: "Parking Allocation System",
