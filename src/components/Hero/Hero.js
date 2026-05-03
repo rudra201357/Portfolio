@@ -1,6 +1,6 @@
 import './Hero.css';
 import { FaInstagram,FaFacebook,FaGithub,FaLinkedin } from 'react-icons/fa';
-import selfie from '../images/selfie.png';
+import selfie from '../images/image.png';
 import About from '../About/about';
 import Skills from '../skills/skills';
 import Projects from '../projects/projects';
