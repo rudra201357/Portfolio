@@ -1,4 +1,6 @@
-import "./projects.css"
+import { FaExternalLinkAlt, FaGithub } from "react-icons/fa";
+import "./projects.css";
+
 function Projects() {
   const projectData = [
     {
@@ -6,14 +8,14 @@ function Projects() {
       desc: "You can order food from RudiiFoodie restaurant.",
       tech: "PHP, MySql",
       github: "https://github.com/rudra201357/RudiiFoodie",
-      link: ""
+      link: "https://rudiifoodie.great-site.net/"
     },   
     {
       title: "Parking Allocation System",
       desc: "A parking allocation app that shows real-time allocated slot, slot reservation.",
       tech: "PHP, MySql",
       github: "https://github.com/rudra201357/PAS",
-      link: ""
+      link: "https://parkingsystem.gt.tc/"
     },
     {
       title: "Criminal Record Management System",
@@ -27,7 +29,7 @@ function Projects() {
       desc: "React app that shows real-time weather using API.",
       tech: "React, API",
       github: "https://github.com/rudra201357/weather-app",
-      link: ""
+      link: "https://weather-app-flax-nine-67.vercel.app/"
     },
     {
       title: "Portfolio Website",
@@ -81,24 +83,64 @@ function Projects() {
     
   ];
 
+  const liveProjects = projectData.filter((project) => project.link).length;
+  const techStack = [...new Set(projectData.flatMap((project) => project.tech.split(", ")))];
+
   return (
-    <div className="projects">
-      <h2>My Projects</h2>
+    <div className="project-showcase">
+      <div className="projects-header">
+        <span className="section-kicker">Selected Builds</span>
+        <h2>My Projects</h2>
+        <p>
+          A mix of web apps, IoT experiments, automation builds, and real-world
+          systems shaped with clean interfaces and practical logic.
+        </p>
+
+        <div className="project-stats" aria-label="Project highlights">
+          <div>
+            <strong>{projectData.length}</strong>
+            <span>Projects</span>
+          </div>
+          <div>
+            <strong>{liveProjects}</strong>
+            <span>Live demos</span>
+          </div>
+          <div>
+            <strong>{techStack.length}</strong>
+            <span>Tech tools</span>
+          </div>
+        </div>
+      </div>
 
       <div className="project-container">
         {projectData.map((proj, index) => (
           <div className="project-card" key={index}>
+            <div className="project-card-top">
+              <span className="project-number">{String(index + 1).padStart(2, "0")}</span>
+              <span className={proj.link ? "status live" : "status code-only"}>
+                {proj.link ? "Live" : "Code"}
+              </span>
+            </div>
+
             <h3>{proj.title}</h3>
             <p>{proj.desc}</p>
-            <p className="tech">{proj.tech}</p>
+            <div className="tech-list">
+              {proj.tech.split(", ").map((tech) => (
+                <span className="tech" key={`${proj.title}-${tech}`}>
+                  {tech}
+                </span>
+              ))}
+            </div>
 
             <div className="project-actions">
-              <a href={proj.github} target="_blank" rel="noreferrer">
+              <a href={proj.github} target="_blank" rel="noreferrer" aria-label={`View ${proj.title} code on GitHub`}>
+                <FaGithub />
                 View Code
               </a>
               
               {proj.link && (
-                <a href={proj.link} target="_blank" rel="noreferrer" className="live-demo">
+                <a href={proj.link} target="_blank" rel="noreferrer" className="live-demo" aria-label={`Open ${proj.title} live demo`}>
+                  <FaExternalLinkAlt />
                   Live Demo
                 </a>
               )}
